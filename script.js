@@ -10,6 +10,9 @@ document.getElementById("getWeatherBtn").addEventListener("click", () => {
 });
 
 function getWeather(city) {
+  document.getElementById("loading").style.display = "block";
+  document.getElementById("weatherResult").innerHTML = "";
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   fetch(url)
@@ -23,19 +26,22 @@ function getWeather(city) {
       displayWeather(data);
     })
     .catch((error) => {
+      document.getElementById("loading").style.display = "none";
       document.getElementById(
         "weatherResult"
-      ).innerHTML = `<p>${error.message}</p>`;
+      ).innerHTML = `<p style="color: red;">${error.message}</p>`;
     });
 }
 
 function displayWeather(data) {
+  document.getElementById("loading").style.display = "none";
+
   const weatherDiv = document.getElementById("weatherResult");
   weatherDiv.innerHTML = `
-    <h2>${data.name}, ${data.sys.country}</h2>
-    <p>Temperature: ${data.main.temp}°C</p>
-    <p>Weather: ${data.weather[0].description}</p>
-    <p>Humidity: ${data.main.humidity}%</p>
-    <p>Wind Speed: ${data.wind.speed} m/s</p>
-  `;
+      <h2>${data.name}, ${data.sys.country}</h2>
+      <p>Temperature: ${data.main.temp}°C</p>
+      <p>Weather: ${data.weather[0].description}</p>
+      <p>Humidity: ${data.main.humidity}%</p>
+      <p>Wind Speed: ${data.wind.speed} m/s</p>
+    `;
 }
