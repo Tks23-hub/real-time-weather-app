@@ -55,4 +55,5 @@ function displayWeather(data) {
       <p>Humidity: ${data.main.humidity}%</p>
       <p>Wind Speed: ${data.wind.speed} m/s</p>
     `;
+  document.getElementById("cityInput").value = "";
 }
