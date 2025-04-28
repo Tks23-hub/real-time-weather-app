@@ -27,9 +27,20 @@ function getWeather(city) {
     })
     .catch((error) => {
       document.getElementById("loading").style.display = "none";
-      document.getElementById(
-        "weatherResult"
-      ).innerHTML = `<p style="color: red;">${error.message}</p>`;
+      document.getElementById("weatherResult").innerHTML = `
+          <div style="
+            background-color: #ffcccc;
+            color: #a94442;
+            padding: 15px;
+            border: 1px solid #a94442;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+          ">
+            ${error.message}
+          </div>
+        `;
     });
 }
 
