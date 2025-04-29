@@ -1,3 +1,6 @@
+// api key from openweathermap
+// https://openweathermap.org/appid
+// 4a2a323fdf53008e590bb9a69d368c70
 const apiKey = "4a2a323fdf53008e590bb9a69d368c70";
 
 document.getElementById("getWeatherBtn").addEventListener("click", () => {
@@ -57,3 +60,63 @@ function displayWeather(data) {
     `;
   document.getElementById("cityInput").value = "";
 }
+
+// feching cities using static list
+// This is a static list of cities for demonstration purposes. In a real application, you might want to fetch this list from an API or a database.
+const cityList = [
+  "London",
+  "Los Angeles",
+  "Lisbon",
+  "Lagos",
+  "Lahore",
+  "Luxembourg",
+  "Paris",
+  "Prague",
+  "Philadelphia",
+  "Porto",
+  "New York",
+  "New Delhi",
+  "Nice",
+  "Nairobi",
+  "Tokyo",
+  "Toronto",
+  "Tunis",
+  "Tampa",
+  "Berlin",
+  "Beijing",
+  "Boston",
+  "Budapest",
+  "Cairo",
+  "Chicago",
+  "Copenhagen",
+];
+
+// fetch function to get suggestions from the static list
+
+document.getElementById("cityInput").addEventListener("input", function () {
+  const input = this.value.toLowerCase();
+  const suggestionsDiv = document.getElementById("suggestions");
+
+  suggestionsDiv.innerHTML = "";
+
+  if (input.length === 0) {
+    return;
+  }
+
+  const filteredCities = cityList.filter((city) =>
+    city.toLowerCase().startsWith(input)
+  );
+
+  filteredCities.forEach((city) => {
+    const div = document.createElement("div");
+    div.textContent = city;
+    div.classList.add("suggestion-item");
+
+    div.addEventListener("click", function () {
+      document.getElementById("cityInput").value = city;
+      suggestionsDiv.innerHTML = "";
+    });
+
+    suggestionsDiv.appendChild(div);
+  });
+});

@@ -55,6 +55,25 @@ button:hover {
   text-align: left;
 }
 
+.suggestions {
+  text-align: left;
+  margin-top: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
 /* Mobile Responsive Design */
 @media (max-width: 600px) {
   h1 {
