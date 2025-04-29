@@ -34,3 +34,33 @@ button {
   margin-top: 20px;
   font-size: 18px;
 }
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input#cityInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  button#getWeatherBtn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  #weatherResult {
+    font-size: 16px;
+  }
+}
